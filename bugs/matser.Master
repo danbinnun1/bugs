@@ -10,7 +10,68 @@
 </head>
 <body>
     <form id="form1" runat="server">
-
+<div id="UnConected" runat="server" >
+        <ul class="inner_main_menu">
+            <li  style="float: right; margin-right: 2%;">
+                <a href="Login.aspx" >Log In</a>
+               
+               <%-- <asp:Button runat="server" ID="LogIn1" OnClick="LogIn1_Click" Text="Log In" CssClass="BSearch"  />--%>
+            </li>
+             <li>
+                 <asp:ImageButton runat="server" ImageUrl="images/BUG.png" OnClick="LogoB_OnClick" CssClass="logo" />
+               
+            </li>
+             <li>
+                  <a href="Register.aspx" >Register</a>
+            </li>
+        </ul>
+    </div>
+      <div id="normal" runat="server" visible="false" >
+        <ul class="inner_main_menu">
+            <li style="float: right">
+                <asp:Button runat="server" OnClick="LogOut1_Click" Text="logOut"  CssClass="BSearch" />
+            </li>
+             <li>
+                 <asp:ImageButton runat="server" ImageUrl="images/BUG.png" OnClick="LogoB_OnClick" CssClass="logo" />
+            </li>
+            <%-- <li>
+                  <a href="OrderNow.aspx">Order Now</a>
+            </li>
+              <li>
+                  <a href="ViewOrders.aspx">View Orders</a>
+            </li>--%>
+                <li>
+                <asp:Label ID="UserString"  runat="server" Text=""></asp:Label>
+            </li>
+        </ul>
+    </div>
+     
+     <div id="moderator" runat="server" visible="false">
+        <ul class="inner_main_menu">
+            <li style="float: right">
+                <asp:Button runat="server" OnClick="LogOut1_Click" Text="logOut"  CssClass="BSearch" />
+            </li>
+             <li>
+                 <asp:ImageButton runat="server" ImageUrl="images/BUG.png" OnClick="LogoB_OnClick" CssClass="logo" />
+            </li>
+            <%-- <li>
+                  <a href="OrderNow.aspx">Order Now</a>
+            </li>
+              <li>
+                  <a href="ViewOrders.aspx">View Orders</a>
+            </li>--%>
+                <li>
+                <asp:Label ID="moderatorString"  runat="server" Text=""></asp:Label>
+            </li>
+        </ul>
+    </div>
+     
+   
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>

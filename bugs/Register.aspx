@@ -12,6 +12,10 @@
         <asp:RequiredFieldValidator Display="Dynamic" ErrorMessage="Password is required!" ControlToValidate="password" runat="server" />
         <asp:RegularExpressionValidator Display="Dynamic" ErrorMessage="Password must be at least 6 letters, with at least one capital letter, lowercase letter and one number" ControlToValidate="password" runat="server" ValidationExpression="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$" />
         
+        <asp:TextBox runat="server" ID="email" placeholder="email" CssClass="input" />
+        <asp:RequiredFieldValidator ErrorMessage="email is required!" ControlToValidate="email" runat="server" Display="Dynamic"/>
+        <asp:FileUpload ID="image" runat="server" />
+
         <asp:Label runat="server" ID="errorBox"></asp:Label>
         <asp:Button Text="Register" runat="server" OnClick="Register_Click" CssClass="button" />
     </div>

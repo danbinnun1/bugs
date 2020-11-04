@@ -59,12 +59,12 @@ namespace DAL
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public static int InsertUser(int rank, string username, string password)
+        public static int InsertUser(int rank, string username, string password, string email)
         {
             return DalHelper.Insert(
                 "INSERT INTO members" +
-                "(memberName, memberPass, rank)" +
-                $"VALUES('{username}','{password}', {rank})");
+                "(memberName, memberPass, rank, email)" +
+                $"VALUES('{username}','{password}', {rank}, '{email}')");
         }
     }
 }

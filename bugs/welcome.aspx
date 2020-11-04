@@ -3,9 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     making the world a better place by fixing bugs
-    <a href="Login.aspx">login</a>
-    <a href="Register.aspx">register</a>
-    <img src="images/BUG.png" />
+    
     
 
 </asp:Content>

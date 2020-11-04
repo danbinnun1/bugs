@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -22,14 +23,17 @@ namespace bugs
             if (!IsValid) return;
             var userName = username.Text;
             var pass = password.Text;
+            var mail = email.Text;
 
-            var user = Member.RegisterUser(Member.regular, userName, pass);
+            var user = Member.RegisterUser(Member.regular, userName, pass, mail);
             if (user == null)
             {
                 errorBox.Text = "Register did not work";
             }
             else
             {
+
+                image.SaveAs(Path.Combine("C:\\Users\\Boaz\\source\\repos\\bugs\\bugs\\images\\", user.id+".png"));
                 Session["user"] = user;
                 //user.AddActivity("Created Account");
                 //Response.Redirect("Profile.aspx?id=" + user.Id);

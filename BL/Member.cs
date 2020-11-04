@@ -10,8 +10,8 @@ namespace BL
 {
     public class Member
     {
-        public static int regular = 0;
-        public static int moderator = 0;
+        public const int regular = 0;
+        public const int moderator = 1;
         
         public Member(int id) : this(DBMember.GetUserById(id))
         {
@@ -24,12 +24,14 @@ namespace BL
             username = (string)dr["memberName"];
             password = (string)dr["memberPass"];
             rank = (int)dr["rank"];
+            email = (string)dr["email"];
         }
 
         public int id { get; }
         public string username { get; }
         public string password { get; set; }
         public int rank { get; set; }
+        public string email { get; set; }
         
         public static List<Member> AllUsers()
         {
@@ -43,9 +45,9 @@ namespace BL
             return DBMember.Authenticate(username, password) ? new Member(DBMember.GetUserByName(username)) : null;
         }
 
-        public static Member RegisterUser(int rank, string username, string password)
+        public static Member RegisterUser(int rank, string username, string password, string email)
         {
-            var id = DBMember.InsertUser(rank, username, password);
+            var id = DBMember.InsertUser(rank, username, password, email);
             return new Member(id);
         }
 
