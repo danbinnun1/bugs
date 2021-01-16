@@ -33,7 +33,7 @@ namespace bugs
             else
             {
 
-                image.SaveAs(Path.Combine("C:\\Users\\Boaz\\source\\repos\\bugs\\bugs\\images\\", user.id+".png"));
+                image.SaveAs(Path.Combine("C:\\Users\\danbi\\source\\repos\\bugs\\bugs\\images\\", user.id+".png"));
                 Session["user"] = user;
                 //user.AddActivity("Created Account");
                 //Response.Redirect("Profile.aspx?id=" + user.Id);

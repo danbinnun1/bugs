@@ -96,7 +96,7 @@ namespace DAL
 
                 return WriteDataError;
             }
-            catch
+            catch (Exception e)
             {
                 return WriteDataError;
             }
@@ -164,7 +164,7 @@ namespace DAL
                 _conn.Open();
                 _connOpen = true;
             }
-            catch (Exception) // basically, if the connection throws some kind of exception.
+            catch (Exception e) // basically, if the connection throws some kind of exception.
             {
                 return false;
             }

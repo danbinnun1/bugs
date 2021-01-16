@@ -42,11 +42,15 @@ namespace BL
 
         public static Member AuthUser(string username, string password)
         {
-            return DBMember.Authenticate(username, password) ? new Member(DBMember.GetUserByName(username)) : null;
+            return DBMember.Authenticate(username, password) ? new Member(DBMember.GetUserByName(username).Rows[0]) : null;
         }
 
         public static Member RegisterUser(int rank, string username, string password, string email)
         {
+            if (DBMember.GetUserByName(username).Rows.Count != 0)
+            {
+                return null;
+            }
             var id = DBMember.InsertUser(rank, username, password, email);
             return new Member(id);
         }

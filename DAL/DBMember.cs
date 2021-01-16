@@ -34,9 +34,9 @@ namespace DAL
         /// </summary>
         /// <param name="username">username of user</param>
         /// <returns>DataRow of user data</returns>
-        public static DataRow GetUserByName(string username)
+        public static DataTable GetUserByName(string username)
         {
-            return DalHelper.RowWhere("members", "memberName", username);
+            return DalHelper.Select("SELECT * FROM members WHERE memberName = '" + username + "';");
         }
 
         /// <summary>

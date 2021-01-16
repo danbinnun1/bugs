@@ -11,25 +11,16 @@ namespace bugs
 {
 
 
-    public partial class report
+    public partial class adminpage
     {
 
         /// <summary>
-        /// description control.
+        /// reports control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox description;
-
-        /// <summary>
-        /// image control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload image;
+        protected global::System.Web.UI.WebControls.DataList reports;
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BL;
 
 namespace bugs
 {
@@ -16,7 +17,11 @@ namespace bugs
 
         protected void submit(object sender, EventArgs e)
         {
-
+            string extention = image.FileName.Substring(image.FileName.IndexOf("."));
+            Report r = new Report(0, description.Text, ((Member)Session["user"]).id, DateTime.Now.ToString(), Status.pending, "","");
+            r.Insert();
+            image.SaveAs("C:\\Users\\danbi\\Source\\Repos\\bugs\\bugs\\reports\\"+r.ID+extention);
+            r.updateImage("C:\\Users\\danbi\\Source\\Repos\\bugs\\bugs\\reports\\" + r.ID + extention);
         }
     }
 }
