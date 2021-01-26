@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -20,8 +21,8 @@ namespace bugs
             string extention = image.FileName.Substring(image.FileName.IndexOf("."));
             Report r = new Report(0, description.Text, ((Member)Session["user"]).id, DateTime.Now.ToString(), Status.pending, "","");
             r.Insert();
-            image.SaveAs("C:\\Users\\danbi\\Source\\Repos\\bugs\\bugs\\reports\\"+r.ID+extention);
-            r.updateImage("C:\\Users\\danbi\\Source\\Repos\\bugs\\bugs\\reports\\" + r.ID + extention);
+            image.SaveAs(Path.Combine(Server.MapPath(" "), "reports\\"+ +r.ID + extention));
+            r.updateImage("reports\\"+ r.ID + extention);
         }
     }
 }

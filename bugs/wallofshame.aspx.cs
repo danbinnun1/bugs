@@ -8,32 +8,30 @@ using BL;
 
 namespace bugs
 {
-    public partial class adminpage : System.Web.UI.Page
+    public partial class wallofshame : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                List<Report> pendingReports = Report.PendingReports();
+                List<Report> pendingReports = Report.AcceptedReports();
                 Session["reports"] = pendingReports;
                 reports.DataSource = pendingReports;
                 reports.DataBind();
             }
         }
 
-
         protected void reports_ItemCommand(object source, DataListCommandEventArgs e)
         {
-            if (e.CommandName == "submit")
+            if (e.CommandName == "readmore")
             {
                 int id = e.Item.ItemIndex;
-                Report report=((List<Report>)Session["reports"])[id];
-                
-                string response = (e.Item.FindControl("response") as TextBox).Text;
-                bool accepted = ((e.Item.FindControl("status") as RadioButtonList).SelectedItem.Text == "accept");
-                Report.update(accepted, response, ((List<Report>)Session["reports"])[id].ID);
-                Response.Redirect("adminpage.aspx");
+                Report report = ((List<Report>)Session["reports"])[id];
+                Session["report"] = report;
+                Response.Redirect("reportforum.aspx");
             }
         }
+
+        
     }
 }

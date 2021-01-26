@@ -45,6 +45,8 @@
     <Compile Include="ConnectionException.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="DALHelper.cs" />
+    <Compile Include="DBAppeal.cs" />
+    <Compile Include="DBComment.cs" />
     <Compile Include="DbHelper.cs" />
     <Compile Include="DBMember.cs" />
     <Compile Include="DBReport.cs" />

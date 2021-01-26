@@ -17,6 +17,38 @@ namespace BL
         public int status { get; set; }
         public string response { get; set; }
         public string image { get; set; }
+        public string statusMessage
+        {
+            get
+            {
+                switch (status)
+                {
+                    case 0:
+                        return "approved";
+                    case 1:
+                        return "denied";
+                    case 2:
+                        return "in process";
+                    default:
+                        return "";
+                }
+            }
+        }
+
+        public bool canBeAppealed
+        {
+            get
+            {
+                return status == 1;
+            }
+        }
+        public string StartOfContent
+        {
+            get
+            {
+                return description.Substring(0, Math.Min(20, description.Length)) + "...";
+            }
+        }
 
         public Report(int iD, string description, int reporterID, string date, int status, string response, string image)
         {
@@ -29,7 +61,7 @@ namespace BL
             this.image = image;
         }
 
-        private Report(DataRow row)
+        public Report(DataRow row)
         {
             ID = (int)row["ID"];
             description = (string)row["description"];
@@ -43,6 +75,10 @@ namespace BL
         public static List<Report> PendingReports()
         {
             return (from DataRow row in DBReport.ReportsByStatus(Status.pending).Rows select new Report(row)).ToList();
+        }
+        public static List<Report> AcceptedReports()
+        {
+            return (from DataRow row in DBReport.ReportsByStatus(Status.approved).Rows select new Report(row)).ToList();
         }
 
         public void Insert()
@@ -67,5 +103,7 @@ namespace BL
             DBReport.UpdateImage(ID, image);
             this.image = image;
         }
+        public Report(int id) : this(DBReport.reportsById(id).Rows[0])
+        { }
     }
 }

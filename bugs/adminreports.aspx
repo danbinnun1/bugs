@@ -1,14 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/matser.Master" AutoEventWireup="true" CodeBehind="adminpage.aspx.cs" Inherits="bugs.adminpage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/matser.Master" AutoEventWireup="true" CodeBehind="adminreports.aspx.cs" Inherits="bugs.adminreports" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-</asp:Content>
+
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   <asp:DataList ID="reports" runat="server" OnItemCommand="reports_ItemCommand">
+    <asp:DataList ID="reports" runat="server" OnItemCommand="reports_ItemCommand">
        <ItemTemplate>
-           <asp:Image ID="image" ImageUrl='<%#Bind("image")%>' runat="server" />
-           <asp:Label ID="description" runat="server" Text='<%#Bind("description")%>'></asp:Label>
-           <asp:Label ID="id" runat="server" Text='<%#Bind("ID")%>'></asp:Label>
+           <asp:Image ID="image" ImageUrl='<%#Bind("AppealedImage")%>' runat="server" />
+           <asp:Label ID="description" runat="server" Text='<%#Bind("AppealedReason")%>'></asp:Label>
            <asp:TextBox ID="response" runat="server"></asp:TextBox>
            <asp:RadioButtonList ID="status" runat="server">
                <asp:ListItem>accept</asp:ListItem>

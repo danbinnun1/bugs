@@ -32,5 +32,13 @@ namespace DAL
         {
             DalHelper.Update("UPDATE reports SET [image] = '" + image + "' WHERE ID = " + id + ";");
         }
+        public static DataTable reportsByReporter(int reporterID)
+        {
+            return DalHelper.Select("SELECT * FROM reports WHERE [reporter] = " + reporterID + ";");
+        }
+        public static DataTable reportsById(int ID)
+        {
+            return DalHelper.Select("SELECT * FROM reports WHERE [ID] = " + ID + ";");
+        }
     }
 }

@@ -46,38 +46,26 @@
             <li>
                 <a href="report.aspx">report</a>
             </li>
+            <li>
+                <a href="wallofshame.aspx">wall of shame</a>
+                                <a href="myreports.aspx">my reports</a>
+
+            </li>
         </ul>
     </div>
      
      <div id="moderator" runat="server" visible="false">
         <ul class="inner_main_menu">
-            <li style="float: right">
-                <asp:Button runat="server" OnClick="LogOut1_Click" Text="logOut"  CssClass="BSearch" />
-            </li>
-             <li>
-                 <asp:ImageButton runat="server" ImageUrl="images/BUG.png" OnClick="LogoB_OnClick" CssClass="logo" />
-            </li>
-            <%-- <li>
-                  <a href="OrderNow.aspx">Order Now</a>
-            </li>
-              <li>
-                  <a href="ViewOrders.aspx">View Orders</a>
-            </li>--%>
-                <li>
-                <asp:Label ID="moderatorString"  runat="server" Text=""></asp:Label>
-            </li>
+            
             <li>
                 <a href="report.aspx">report</a>
                 <a href="adminpage.aspx">admin</a>
+                <a href="adminreports.aspx">appeals</a>
             </li>
         </ul>
     </div>
      
-   
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
+
     
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

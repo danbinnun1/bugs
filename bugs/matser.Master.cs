@@ -16,19 +16,28 @@ namespace bugs
             if (user == null) return;
             var type = user.rank;
             var des = $"Ahoy! {user.username}!";
-            switch (type)//display the right nave bar
+            //switch (type)//display the right nave bar
+            //{
+            //    case Member.regular:
+            //        //sh
+            //        normal.Visible = true;
+            //        UserString.Text = des;
+            //        break;
+            //    case Member.moderator:
+            //        //system
+            //        moderator.Visible = true;
+            //        moderatorString.Text = des;
+            //        break;
+            //}
+            if (type == Member.moderator)
             {
-                case Member.regular:
-                    //sh
-                    normal.Visible = true;
-                    UserString.Text = des;
-                    break;
-                case Member.moderator:
-                    //system
-                    moderator.Visible = true;
-                    moderatorString.Text = des;
-                    break;
+                moderator.Visible = true;
             }
+            
+            UserString.Text = des;
+            
+            normal.Visible = true;
+
             UnConected.Visible = false;
         }
 

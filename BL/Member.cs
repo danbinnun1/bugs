@@ -32,6 +32,7 @@ namespace BL
         public string password { get; set; }
         public int rank { get; set; }
         public string email { get; set; }
+        public string Image { get; set; }
         
         public static List<Member> AllUsers()
         {
@@ -54,6 +55,9 @@ namespace BL
             var id = DBMember.InsertUser(rank, username, password, email);
             return new Member(id);
         }
-
+        public List<Report> GetReports()
+        {
+            return (from DataRow row in DBReport.reportsByReporter(id).Rows select new Report(row)).ToList();
+        }
     }
 }
